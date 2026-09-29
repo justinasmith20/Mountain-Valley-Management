@@ -115,8 +115,8 @@
 
     /* ── HERO ── */
     .hero {
-      display: grid; grid-template-columns: 1fr 1fr;
-      min-height: 88vh;
+      display: grid; grid-template-columns: 1fr;
+      min-height: 76vh;
       border-bottom: 0.5px solid var(--light-gray);
     }
     .hero-left {
@@ -152,39 +152,17 @@
       line-height: 1.75; max-width: 360px; margin-bottom: 2.5rem;
     }
     .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero .hero-left { padding: 7rem 4rem 7.5rem; }
+    .hero .hero-title { font-size: clamp(2.5rem, 5vw, 4.1rem); max-width: 21ch; line-height: 1.08; margin-bottom: 2rem; position: relative; }
+    .hero .hero-sub { max-width: 540px; font-size: 16px; position: relative; }
+    .hero .hero-eyebrow, .hero .hero-ctas { position: relative; }
+    .hero-mark {
+      position: absolute; right: -3%; top: 50%; transform: translateY(-50%);
+      width: min(48vw, 680px); height: auto; pointer-events: none;
+    }
+    .hero-mark path { fill: rgba(255,255,255,0.06); }
 
-    .hero-right {
-      background: var(--cream);
-      display: flex; align-items: center; justify-content: center;
-      padding: 4rem 3rem;
-    }
-
-    /* ── PORTAL CARD ── */
-    .portal-card {
-      background: #fff;
-      border: 0.5px solid var(--light-gray);
-      width: 100%; max-width: 400px;
-    }
-    .portal-tabs {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-bottom: 0.5px solid var(--light-gray);
-    }
-    .portal-tab {
-      padding: 1rem; text-align: center;
-      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer; background: none; border: none;
-      font-family: 'DM Sans', sans-serif; color: var(--text-muted);
-      transition: all 0.2s; border-bottom: 2px solid transparent;
-    }
-    .portal-tab.active { color: var(--forest); border-bottom: 2px solid var(--sage); }
-    .portal-tab:hover:not(.active) { background: var(--cream); }
-    .portal-body { padding: 2rem; }
-    .portal-heading {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem; color: var(--forest);
-      margin-bottom: 0.35rem; font-weight: 400;
-    }
-    .portal-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 1.75rem; }
+    /* ── FORMS ── */
     .form-group { margin-bottom: 1rem; }
     .form-group label {
       display: block; font-size: 11px; letter-spacing: 0.08em;
@@ -201,12 +179,6 @@
       border-color: var(--forest); background: #fff;
     }
     .form-group textarea { resize: vertical; min-height: 100px; }
-    .portal-actions { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 10px; }
-    .portal-actions .btn { width: 100%; text-align: center; padding: 12px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
-    .portal-forgot { text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 1rem; }
-    .portal-forgot a { color: var(--sage); text-decoration: none; }
-    .portal-panel { display: none; }
-    .portal-panel.active { display: block; }
 
     /* ── STATS ── */
     .stats-bar {
@@ -239,7 +211,7 @@
 
     /* ── SERVICES GRID ── */
     .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      display: grid; grid-template-columns: repeat(2, 1fr);
       border: 0.5px solid var(--light-gray);
     }
     .service-item {
@@ -249,16 +221,22 @@
       transition: background 0.2s;
     }
     .service-item:hover { background: var(--cream); }
-    .service-item:nth-child(3n) { border-right: none; }
-    .service-item:nth-last-child(-n+3) { border-bottom: none; }
+    .service-item:nth-child(2n) { border-right: none; }
+    .service-item:nth-last-child(-n+2) { border-bottom: none; }
+    .service-item { padding: 3rem 2.75rem; display: flex; flex-direction: column; }
     .service-icon {
       width: 36px; height: 36px; background: var(--forest);
       margin-bottom: 1.25rem;
       display: flex; align-items: center; justify-content: center;
     }
     .service-icon svg { width: 18px; height: 18px; stroke: var(--sage-light); fill: none; stroke-width: 1.5; }
-    .service-title { font-size: 15px; font-weight: 500; color: var(--forest); margin-bottom: 0.6rem; }
-    .service-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+    .service-title { font-size: 18px; font-weight: 500; color: var(--forest); margin-bottom: 0.75rem; }
+    .service-desc { font-size: 14.5px; color: var(--text-muted); line-height: 1.7; max-width: 46ch; }
+    .service-link { margin-top: 1.25rem; font-size: 14px; font-weight: 500; color: var(--forest); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--sage-light); align-self: flex-start; }
+    .service-link:hover { text-decoration-color: var(--forest); }
+    .service-list { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.45rem; }
+    .service-list li { font-size: 14px; color: var(--text-muted); padding-left: 1.1rem; position: relative; }
+    .service-list li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; background: var(--sage); }
 
     /* ── DARK / FOREST SECTION ── */
     .forest-section {
@@ -305,6 +283,7 @@
     .nav-links .nav-drop-menu a { display: block; padding: 0.6rem 1.25rem; }
     .nav-links a:focus-visible, .nav-drop-toggle:focus-visible, .btn:focus-visible { outline: 2px solid var(--sage); outline-offset: 3px; }
 
+    .nav-drop-portal .nav-drop-menu { left: auto; right: 0; min-width: 200px; }
     .form-status { font-size: 13px; color: var(--forest); margin-top: 0.85rem; min-height: 1.2em; }
 
     /* ── SUBPAGES ── */
@@ -340,13 +319,13 @@
     /* ── FOOTER ── */
     footer {
       background: var(--forest-dark); padding: 2.5rem 3rem;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem 2rem;
       border-top: 0.5px solid rgba(255,255,255,0.08);
     }
     .footer-logo svg { height: 28px; width: auto; filter: brightness(0) invert(1) opacity(0.45); }
-    footer p { font-size: 12px; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; letter-spacing: 0.05em; }
+    footer p { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.75rem; width: 100%; order: 3; padding-top: 1.5rem; border-top: 0.5px solid rgba(255,255,255,0.08); }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; letter-spacing: 0.05em; }
     .footer-links a:hover { color: var(--sage-light); }
     /* ── HAMBURGER MENU ── */
     .hamburger {
@@ -402,6 +381,8 @@
       .nav-links .nav-drop-menu a { border-bottom: none; padding: 0.55rem 0; font-size: 14px; }
       .page-hero { padding: 3.5rem 1.75rem; }
       .faq-answer { padding-right: 0; }
+      .nav-drop-portal { border-bottom: none; }
+      .nav-drop-portal .nav-drop-menu { padding-top: 0.5rem; }
       .nav-links .btn {
         margin-top: 1rem;
         text-align: center;
@@ -415,7 +396,8 @@
       .hero-sub { max-width: 100%; }
       .hero-ctas { flex-direction: column; }
       .hero-ctas .btn { text-align: center; }
-      .hero-right { padding: 2.5rem 1.5rem; }
+      .hero .hero-left { padding: 4rem 1.75rem 4.5rem; }
+      .hero-mark { display: none; }
 
       /* Stats */
       .stats-bar { grid-template-columns: 1fr 1fr; }
@@ -427,7 +409,8 @@
       .section { padding: 3.5rem 1.75rem; }
       .section-title { margin-bottom: 2rem; }
       .services-grid { grid-template-columns: 1fr; }
-      .service-item { border-right: none !important; }
+      .service-item { border-right: none !important; padding: 2.25rem 1.75rem; }
+      .service-item:nth-last-child(-n+2) { border-bottom: 0.5px solid var(--light-gray); }
       .service-item:last-child { border-bottom: none; }
 
       /* About/Forest section */
@@ -475,15 +458,21 @@
     <div class="nav-drop">
       <button class="nav-drop-toggle" aria-haspopup="true" onclick="this.parentElement.classList.toggle('open')">Services</button>
       <div class="nav-drop-menu">
-        <a href="/#services" onclick="closeMenu()">All services</a>
         <a href="/cam-reconciliation" onclick="closeMenu()">CAM Reconciliation</a>
         <a href="/new-building-onboarding" onclick="closeMenu()">New Building Onboarding</a>
+        <a href="/construction-management" onclick="closeMenu()">Construction Management</a>
       </div>
     </div>
     <a href="/#about" onclick="closeMenu()">About</a>
     <a href="/faq" onclick="closeMenu()">FAQ</a>
     <a href="/#contact" onclick="closeMenu()">Contact</a>
-    <a href="/#portal" class="btn btn-outline" onclick="closeMenu()">Portal Login</a>
+    <div class="nav-drop nav-drop-portal">
+      <button class="btn btn-outline" aria-haspopup="true" onclick="this.parentElement.classList.toggle('open')">Portal Login</button>
+      <div class="nav-drop-menu">
+        <a href="https://1450-twin-lakes-avenue-building-i-rentcafewebsite.securecafe.com/residentservices/1450-twin-lakes-avenue-building-i/userlogin.aspx" target="_blank" rel="noopener" onclick="closeMenu()">Tenant portal</a>
+        <a href="http://100134967.breeze.cafe/owner/content/login" target="_blank" rel="noopener" onclick="closeMenu()">Owner portal</a>
+      </div>
+    </div>
   </div>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -566,9 +555,11 @@
   <div class="footer-links">
     <a href="/cam-reconciliation">CAM Reconciliation</a>
     <a href="/new-building-onboarding">New Building Onboarding</a>
+    <a href="/construction-management">Construction Management</a>
     <a href="/faq">FAQ</a>
     <a href="/privacy">Privacy Policy</a>
-    <a href="/#portal">Portal Login</a>
+    <a href="https://1450-twin-lakes-avenue-building-i-rentcafewebsite.securecafe.com/residentservices/1450-twin-lakes-avenue-building-i/userlogin.aspx" target="_blank" rel="noopener">Tenant Portal</a>
+    <a href="http://100134967.breeze.cafe/owner/content/login" target="_blank" rel="noopener">Owner Portal</a>
   </div>
 </footer>
 
@@ -581,18 +572,6 @@
     document.getElementById('navLinks').classList.remove('open');
     document.getElementById('hamburger').classList.remove('open');
   }
-  function switchTab(type) {
-    document.querySelectorAll('.portal-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.portal-panel').forEach(p => p.classList.remove('active'));
-    if (type === 'tenant') {
-      document.querySelectorAll('.portal-tab')[0].classList.add('active');
-      document.getElementById('panel-tenant').classList.add('active');
-    } else {
-      document.querySelectorAll('.portal-tab')[1].classList.add('active');
-      document.getElementById('panel-owner').classList.add('active');
-    }
-  }
-
   // Contact form. Paste your Formspree form ID below (e.g. 'xkgnabcd') to have
   // messages delivered straight to your inbox. Left blank, it opens the visitor's email app.
   const FORMSPREE_ID = '';
